@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Киім таңдау бойынша бағдарлама</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px auto;
+            padding: 20px;
+            background: none; /* Фонды өшіру */
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333333;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #f3e9ff; /* Карточканың жұмсақ күлгін түсі */
+            padding: 20px;
+            border-radius: 12px;
+            width: 300px;
+            margin: 50px auto;
+            border: 2px solid #c9b2f0;
+            box-shadow: 0 0 10px #d4c4f5;
+        }
+
+        .title {
+            font-size: 25px;
+            color: #4b2e83;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .input-box {
+            width: 250px;
+            padding: 10px;
+            margin-top: 5px;
+            border: 2px solid #7f6bb3;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #4b2e83;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 6px;
+            background-color: #2ecc71; /* ЖАСЫЛ ТҮС */
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #27ae60; /* Hover — қою жасыл */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <p class="title">Киім таңдау бойынша бағдарлама</p>
+
+        <label for="temperature" style="color:#4b2e83;">Ауа температурасы (°C):</label><br>
+
+        <input type="number" id="temperature" class="input-box" placeholder="Мысалы, 15">
+
+        <button onclick="chooseClothes()" class="btn">
+            Киімді көрсету
+        </button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        function chooseClothes() {
+            const temp = parseFloat(document.getElementById('temperature').value);
+            let clothing = '';
+
+            if (temp > 20) {
+                clothing = 'Жеңіл киім кию';
+            } else if (temp > 10) {
+                clothing = 'Жеңіл күртеше кию';
+            } else if (temp > 0) {
+                clothing = 'Қалың күртеше кию';
+            } else {
+                clothing = 'Суық киімдер кию (пальто, бас киім)';
+            }
+
+            document.getElementById('result').innerText = clothing;
+        }
+    </script>
+
+</body>
+
+</html>
